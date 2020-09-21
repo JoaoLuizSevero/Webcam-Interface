@@ -1,0 +1,2 @@
+# BasicWebcam
+ Basic webcam manager
