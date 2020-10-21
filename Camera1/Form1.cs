@@ -7,7 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
 using AForge.Video;
 using AForge.Video.DirectShow;
 
@@ -15,7 +14,7 @@ namespace Camera1
 {
     public partial class Form1 : Form
     {
-        private bool DeviceExist = false;
+        private bool haveDevice = false;
         private FilterInfoCollection videoDevices;
         private VideoCaptureDevice videoSource = null;
 
@@ -23,64 +22,63 @@ namespace Camera1
         {
             InitializeComponent();
         }
-        private void video_NewFrame(object sender, NewFrameEventArgs eventArgs)
+        private void GetFrame(object sender, NewFrameEventArgs eventArgs)
         {
             Bitmap img = (Bitmap)eventArgs.Frame.Clone();
-            pictureBox1.Image = img;
+            pb_frame.Image = img;
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            btn_salvar.Enabled = false;
+            btn_save.Enabled = false;
             try
             {
                 videoDevices = new FilterInfoCollection(FilterCategory.VideoInputDevice);
-                cb_dispositivos.Items.Clear();
+                cb_devices.Items.Clear();
                 if (videoDevices.Count == 0)
                     throw new ApplicationException();
 
-                DeviceExist = true;
+                haveDevice = true;
                 foreach (FilterInfo device in videoDevices)
                 {
-                    cb_dispositivos.Items.Add(device.Name);
+                    cb_devices.Items.Add(device.Name);
                 }
-                cb_dispositivos.SelectedIndex = 0; //make dafault to first cam
+                cb_devices.SelectedIndex = 0;
             }
             catch (ApplicationException)
             {
-                DeviceExist = false;
-                cb_dispositivos.Items.Add("Nenhum dispositivo encontrado!");
+                haveDevice = false;
+                cb_devices.Items.Add("No devices found!");
             }
         }
 
-        private void btn_capturar_Click(object sender, EventArgs e)
+        private void btn_capture_Click(object sender, EventArgs e)
         {
-            if (DeviceExist)
+            if (haveDevice)
             {
-                if(btn_capturar.Text == "Iniciar")
+                if(btn_capture.Text == "Start")
                 {
-                    videoSource = new VideoCaptureDevice(videoDevices[cb_dispositivos.SelectedIndex].MonikerString);
-                    videoSource.NewFrame += new NewFrameEventHandler(video_NewFrame);
+                    videoSource = new VideoCaptureDevice(videoDevices[cb_devices.SelectedIndex].MonikerString);
+                    videoSource.NewFrame += new NewFrameEventHandler(GetFrame);
                     videoSource.Start();
-                    btn_capturar.Text = "Parar";
-                    btn_salvar.Enabled = false;
+                    btn_capture.Text = "Stop";
+                    btn_save.Enabled = false;
                 }
                 else
                 {
                     videoSource.SignalToStop();
                     videoSource = null;
-                    //pictureBox1.Image = null;
-                    btn_capturar.Text = "Iniciar";
-                    btn_salvar.Enabled = true;
+                    btn_capture.Text = "Start";
+                    btn_save.Enabled = true;
                 }
             }
             else
             {
-                MessageBox.Show("Nenhum dispositivo encontrado!");
+                MessageBox.Show("No devices found!");
             }
         }
 
-        private void btn_fechar_Click(object sender, EventArgs e)
+        private void btn_close_Click(object sender, EventArgs e)
         {
             if (videoSource != null)
             {
@@ -90,13 +88,14 @@ namespace Camera1
             this.Close();
         }
 
-        private void btn_salvar_Click(object sender, EventArgs e)
+        private void btn_save_Click(object sender, EventArgs e)
         {   
             saveFileDialog1.Filter = "JPEG (*.jpg;*.jpeg;*jpeg;*.jfif)|*.jpg;*.jpeg;*jpeg;*.jfif";
+            saveFileDialog1.FileName = "New frame";
             DialogResult res = saveFileDialog1.ShowDialog();
             if (res == DialogResult.OK)
             {
-                pictureBox1.Image.Save(saveFileDialog1.FileName, System.Drawing.Imaging.ImageFormat.Jpeg);
+                pb_frame.Image.Save(saveFileDialog1.FileName, System.Drawing.Imaging.ImageFormat.Jpeg);
             }
         }
     }

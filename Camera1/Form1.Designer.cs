@@ -28,106 +28,120 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.btn_capturar = new System.Windows.Forms.Button();
-            this.btn_salvar = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.cb_dispositivos = new System.Windows.Forms.ComboBox();
+            this.pb_frame = new System.Windows.Forms.PictureBox();
+            this.btn_capture = new System.Windows.Forms.Button();
+            this.btn_save = new System.Windows.Forms.Button();
+            this.lb_devices = new System.Windows.Forms.Label();
+            this.cb_devices = new System.Windows.Forms.ComboBox();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
-            this.btn_fechar = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.btn_close = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_frame)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // pictureBox1
+            // pb_frame
             // 
-            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pictureBox1.Location = new System.Drawing.Point(12, 12);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(345, 284);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
+            this.pb_frame.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pb_frame.Location = new System.Drawing.Point(189, 8);
+            this.pb_frame.Name = "pb_frame";
+            this.pb_frame.Size = new System.Drawing.Size(341, 256);
+            this.pb_frame.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pb_frame.TabIndex = 0;
+            this.pb_frame.TabStop = false;
             // 
-            // btn_capturar
+            // btn_capture
             // 
-            this.btn_capturar.Location = new System.Drawing.Point(366, 12);
-            this.btn_capturar.Name = "btn_capturar";
-            this.btn_capturar.Size = new System.Drawing.Size(154, 30);
-            this.btn_capturar.TabIndex = 1;
-            this.btn_capturar.Text = "Iniciar";
-            this.btn_capturar.UseVisualStyleBackColor = true;
-            this.btn_capturar.Click += new System.EventHandler(this.btn_capturar_Click);
+            this.btn_capture.Location = new System.Drawing.Point(13, 144);
+            this.btn_capture.Name = "btn_capture";
+            this.btn_capture.Size = new System.Drawing.Size(157, 30);
+            this.btn_capture.TabIndex = 1;
+            this.btn_capture.Text = "Start";
+            this.btn_capture.UseVisualStyleBackColor = true;
+            this.btn_capture.Click += new System.EventHandler(this.btn_capture_Click);
             // 
-            // btn_salvar
+            // btn_save
             // 
-            this.btn_salvar.Location = new System.Drawing.Point(366, 48);
-            this.btn_salvar.Name = "btn_salvar";
-            this.btn_salvar.Size = new System.Drawing.Size(154, 30);
-            this.btn_salvar.TabIndex = 2;
-            this.btn_salvar.Text = "Salvar";
-            this.btn_salvar.UseVisualStyleBackColor = true;
-            this.btn_salvar.Click += new System.EventHandler(this.btn_salvar_Click);
+            this.btn_save.Location = new System.Drawing.Point(13, 180);
+            this.btn_save.Name = "btn_save";
+            this.btn_save.Size = new System.Drawing.Size(157, 30);
+            this.btn_save.TabIndex = 2;
+            this.btn_save.Text = "Save";
+            this.btn_save.UseVisualStyleBackColor = true;
+            this.btn_save.Click += new System.EventHandler(this.btn_save_Click);
             // 
-            // label1
+            // lb_devices
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(363, 259);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(63, 13);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Dispositivos";
+            this.lb_devices.AutoSize = true;
+            this.lb_devices.Location = new System.Drawing.Point(10, 7);
+            this.lb_devices.Name = "lb_devices";
+            this.lb_devices.Size = new System.Drawing.Size(46, 13);
+            this.lb_devices.TabIndex = 3;
+            this.lb_devices.Text = "Devices";
             // 
-            // cb_dispositivos
+            // cb_devices
             // 
-            this.cb_dispositivos.FormattingEnabled = true;
-            this.cb_dispositivos.Location = new System.Drawing.Point(363, 275);
-            this.cb_dispositivos.Name = "cb_dispositivos";
-            this.cb_dispositivos.Size = new System.Drawing.Size(157, 21);
-            this.cb_dispositivos.TabIndex = 4;
+            this.cb_devices.FormattingEnabled = true;
+            this.cb_devices.Location = new System.Drawing.Point(10, 23);
+            this.cb_devices.Name = "cb_devices";
+            this.cb_devices.Size = new System.Drawing.Size(157, 21);
+            this.cb_devices.TabIndex = 4;
             // 
-            // btn_fechar
+            // btn_close
             // 
-            this.btn_fechar.Location = new System.Drawing.Point(366, 84);
-            this.btn_fechar.Name = "btn_fechar";
-            this.btn_fechar.Size = new System.Drawing.Size(154, 30);
-            this.btn_fechar.TabIndex = 5;
-            this.btn_fechar.Text = "Fechar";
-            this.btn_fechar.UseVisualStyleBackColor = true;
-            this.btn_fechar.Click += new System.EventHandler(this.btn_fechar_Click);
+            this.btn_close.Location = new System.Drawing.Point(13, 216);
+            this.btn_close.Name = "btn_close";
+            this.btn_close.Size = new System.Drawing.Size(157, 30);
+            this.btn_close.TabIndex = 5;
+            this.btn_close.Text = "Close";
+            this.btn_close.UseVisualStyleBackColor = true;
+            this.btn_close.Click += new System.EventHandler(this.btn_close_Click);
+            // 
+            // panel1
+            // 
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.lb_devices);
+            this.panel1.Controls.Add(this.btn_close);
+            this.panel1.Controls.Add(this.btn_capture);
+            this.panel1.Controls.Add(this.cb_devices);
+            this.panel1.Controls.Add(this.btn_save);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(183, 270);
+            this.panel1.TabIndex = 6;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(529, 307);
-            this.Controls.Add(this.btn_fechar);
-            this.Controls.Add(this.cb_dispositivos);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.btn_salvar);
-            this.Controls.Add(this.btn_capturar);
-            this.Controls.Add(this.pictureBox1);
+            this.ClientSize = new System.Drawing.Size(535, 270);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.pb_frame);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Câmera";
+            this.Text = "WebCam Capture";
             this.Load += new System.EventHandler(this.Form1_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_frame)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Button btn_capturar;
-        private System.Windows.Forms.Button btn_salvar;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox cb_dispositivos;
+        private System.Windows.Forms.PictureBox pb_frame;
+        private System.Windows.Forms.Button btn_capture;
+        private System.Windows.Forms.Button btn_save;
+        private System.Windows.Forms.Label lb_devices;
+        private System.Windows.Forms.ComboBox cb_devices;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
-        private System.Windows.Forms.Button btn_fechar;
+        private System.Windows.Forms.Button btn_close;
+        private System.Windows.Forms.Panel panel1;
     }
 }
 
