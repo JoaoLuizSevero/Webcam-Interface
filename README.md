@@ -6,6 +6,3 @@ A simple **WebCam** interface made in **Visual Studio**. Just for take photos fr
 
 ### Interface
 ![Interface](https://github.com/JoaoLuizSevero/BasicWebcam/blob/master/Camera1/assets/picture1.PNG)
-
-## Comments
-
